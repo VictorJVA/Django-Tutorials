@@ -18,7 +18,7 @@
                 {% else %}
                     <p class="card-text">{{ product.price }}</p>
                 {% endif %}
-                {% for comment in product.comments.all %}
+                {% for comment in product.comment_set.all %}
                     - {{ comment.description }}<br>
                 {% empty %}
                     <p>No comments available.</p>
