@@ -69,7 +69,7 @@ class ProductShowView(View):
         viewData["product"] = product 
         return render(request, self.template_name, viewData)
 
-class ProductForm(forms.Form):
+class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ['name', 'price']
@@ -94,9 +94,6 @@ class ProductCreateView(View):
     def post(self, request):
         form = ProductForm(request.POST)
         if form.is_valid():
-            # Process the form data here
-            # For example, save the data to the database
-            # product = Product(name=form.cleaned_data['name'], price=form.cleaned_data['price'])
             form.save()
             
             # Redirect to a success page or another view
